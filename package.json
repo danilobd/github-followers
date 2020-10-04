@@ -1,0 +1,11 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Danilo Dutra <contato@danbd.me>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  }
+}
