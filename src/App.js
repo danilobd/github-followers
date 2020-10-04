@@ -13,10 +13,14 @@ class App {
   middlewares() {
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: true }));
+
+    this.express.set('view engine', 'pug');
+    this.express.set('views', `${__dirname}/views`);
   }
 
   routes() {
-    this.express.get('/', (req, res) => this.routesController.status(req, res));
+    this.express.get('/status', (req, res) => this.routesController.status(req, res));
+    this.express.get('/', (req, res) => this.routesController.index(req, res));
   }
 }
 
