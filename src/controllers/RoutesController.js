@@ -17,10 +17,22 @@ class RoutesController {
     res.json({ status: 'Server is running!' });
   }
 
-  apiUsername(req, res) {
+  async apiUsername(req, res) {
     if (!req.body.username) { res.status(400).send(); }
 
-    res.json(req.body);
+    const { username } = req.body;
+
+    const getFollowers = await this.github.getFollowers(username);
+    const getFollowing = await this.github.getFollowing(username);
+
+    if (getFollowers && getFollowing) {
+      res.json({
+        followers: getFollowers,
+        following: getFollowing,
+      }).send();
+    }
+
+    res.status(404).send();
   }
 }
 
