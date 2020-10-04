@@ -1,8 +1,10 @@
 const express = require('express');
+const RoutesController = require('./controllers/RoutesController');
 
 class App {
   constructor() {
     this.express = express();
+    this.routesController = new RoutesController();
 
     this.middlewares();
     this.routes();
@@ -14,7 +16,7 @@ class App {
   }
 
   routes() {
-    this.express.get('/', (req, res) => res.json({ status: 'Server is running!' }));
+    this.express.get('/', (req, res) => this.routesController.status(req, res));
   }
 }
 
