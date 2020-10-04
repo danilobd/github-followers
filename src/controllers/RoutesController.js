@@ -12,6 +12,12 @@ class RoutesController {
   status(req, res) {
     res.json({ status: 'Server is running!' });
   }
+
+  apiUsername(req, res) {
+    if (!req.body.username) { res.status(400).send(); }
+
+    res.json(req.body);
+  }
 }
 
 module.exports = RoutesController;
