@@ -1,4 +1,8 @@
 class RoutesController {
+  constructor(github) {
+    this.github = github;
+  }
+
   index(req, res) {
     const urlForm = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT}/api/username` : 'http://localhost/api/username';
 

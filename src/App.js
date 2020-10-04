@@ -1,10 +1,11 @@
 const express = require('express');
 const RoutesController = require('./controllers/RoutesController');
+const GitHub = require('./models/github');
 
 class App {
   constructor() {
     this.express = express();
-    this.routesController = new RoutesController();
+    this.routesController = new RoutesController(new GitHub());
 
     this.middlewares();
     this.routes();
