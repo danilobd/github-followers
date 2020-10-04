@@ -1,0 +1,9 @@
+version: "3.8"
+
+services: 
+  api:
+    build: .    
+    restart: always
+    image: api
+    environment: 
+      PORT: ${PORT}

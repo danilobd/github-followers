@@ -1,0 +1,13 @@
+version: "3.8"
+
+services: 
+  api:
+    volumes: 
+      - .:/home/app
+      - nodemodules_api:/home/app/node_modules
+    ports: 
+      - ${PORT}:${PORT}
+    command: yarn dev
+
+volumes: 
+  nodemodules_api: {}
