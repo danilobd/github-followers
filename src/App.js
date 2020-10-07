@@ -22,7 +22,7 @@ class App {
   routes() {
     this.express.get('/status', (req, res) => this.routesController.status(req, res));
     this.express.get('/', (req, res) => this.routesController.index(req, res));
-    this.express.post('/api/username', (req, res) => this.routesController.apiUsername(req, res));
+    this.express.get('/api/username/:username', (req, res) => this.routesController.apiUsername(req, res));
   }
 }
 

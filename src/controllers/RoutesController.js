@@ -18,9 +18,9 @@ class RoutesController {
   }
 
   async apiUsername(req, res) {
-    if (!req.body.username) { res.status(400).send(); }
+    if (!req.params.username) { res.status(400).send(); }
 
-    const { username } = req.body;
+    const { username } = req.params;
 
     const getFollowers = await this.github.getFollowers(username);
     const getFollowing = await this.github.getFollowing(username);
