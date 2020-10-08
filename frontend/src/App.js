@@ -22,38 +22,52 @@ function App() {
     )
   }
 
+  const Form = () => {
+    return (
+      <div className="container">
+
+        <p>Type your GitHub username</p>
+
+        <div className="input-group mb-3">
+          <div className="input-group-prepend"><span className="input-group-text" id="basic-addon3">https://github.com/</span></div>
+          <input type="text" ref={inputUsername} className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="GitHub username" />
+        </div>
+
+        <button type="button" onClick={() => check()} className="btn btn-secondary">Check</button>
+
+      </div>
+    )
+  }
+
+  const Sections = ({content, name}) => {
+    console.log(name, content);
+    return (
+      <div key={name} className="container">
+        <h5>{name}</h5>
+        <button type="button" className="btn btn-secondary" onClick={() => setListUsers()}>X</button>
+          <div className="row">
+          {
+            content.map(element => {
+              return <Card key={element.id} element={element} />
+            })
+          }
+        </div>
+      </div>
+    )
+  }
+
   const Content = () => {
     
     if(!listUsers)
-      return (
-        <div className="container">
-  
-          <p>Type your GitHub username</p>
-  
-          <div className="input-group mb-3">
-            <div className="input-group-prepend"><span className="input-group-text" id="basic-addon3">https://github.com/</span></div>
-            <input type="text" ref={inputUsername} className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="GitHub username" />
-          </div>
-  
-          <button type="button" onClick={() => check()} className="btn btn-secondary">Check</button>
-  
-          </div>
-      )
+      return <Form />
     else {
-      return (
-        <div className="container">
-          <h5>Don't follow you back</h5>
-          <button type="button" class="btn btn-secondary" onClick={() => setListUsers()}>X</button>
-            <div className="row">
-            {
-              listUsers.dontFollowBack.map(element => {
-                return <Card element={element} />
-              })
-            }
-          </div>
-        </div>
-      )
-      
+      let elements = []
+
+      for (const name of Object.keys(listUsers)) {
+        elements.push(<Sections key={name} content={listUsers[name]} name={name} />);  
+      }
+
+      return elements;
     }
   }
 
