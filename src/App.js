@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const RoutesController = require('./controllers/RoutesController');
 const GitHub = require('./models/github');
 
@@ -17,6 +18,8 @@ class App {
 
     this.express.set('view engine', 'pug');
     this.express.set('views', `${__dirname}/views`);
+
+    this.express.use(cors());
   }
 
   routes() {
