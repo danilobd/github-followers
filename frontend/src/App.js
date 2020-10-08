@@ -7,6 +7,21 @@ function App() {
   const [listUsers, setListUsers] = useState();
   const [loading, setLoading] = useState(false);
 
+  const Card = ({element}) => {
+    return (
+      <div className="col p-2">
+        <div key={element.id} className="card" style={{width: 9 + 'rem'}}>
+          <img src={element.avatar_url} className="card-img-top" alt="..." />
+          <div className="card-body p-1">
+            <a href={element.html_url} target="_blank" rel="noopener noreferrer" className="card-link text-dark h6">
+              {element.login}
+            </a>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   const Content = () => {
     
     if(!listUsers)
@@ -32,18 +47,7 @@ function App() {
             <div className="row">
             {
               listUsers.dontFollowBack.map(element => {
-                return (
-                  <div className="col p-2">
-                    <div key={element.id} className="card" style={{width: 9 + 'rem'}}>
-                      <img src={element.avatar_url} className="card-img-top" alt="..." />
-                      <div className="card-body p-1">
-                        <a href={element.html_url} target="_blank" rel="noopener noreferrer" className="card-link text-dark h6">
-                          {element.login}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                )
+                return <Card element={element} />
               })
             }
           </div>
