@@ -12,21 +12,24 @@ class RoutesController {
 
     const { username } = req.params;
 
-    const getFollowers = await this.github.getFollowers(username);
-    const getFollowing = await this.github.getFollowing(username);
+    try {
+      const getFollowers = await this.github.getFollowers(username);
+      const getFollowing = await this.github.getFollowing(username);
 
-    if (getFollowers && getFollowing) {
-      const checkUsers = this.github.checkUsers(getFollowing, getFollowers);
-      const iDontFollowBack = this.github.iDontFollowBack(getFollowing, getFollowers);
+      if (getFollowers && getFollowing) {
+        const checkUsers = this.github.checkUsers(getFollowing, getFollowers);
+        const iDontFollowBack = this.github.iDontFollowBack(getFollowing, getFollowers);
 
-      res.json({
-        followBack: checkUsers.followBack,
-        dontFollowBack: checkUsers.dontFollowBack,
-        iDontFollowBack,
-      }).send();
+        return res.json({
+          followBack: checkUsers.followBack,
+          dontFollowBack: checkUsers.dontFollowBack,
+          iDontFollowBack,
+        }).send();
+      }
+      return res.status(404).send();
+    } catch (error) {
+      return res.status(500);
     }
-
-    res.status(404).send();
   }
 }
 
