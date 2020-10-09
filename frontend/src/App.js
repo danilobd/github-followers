@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
+import githubLogo from "./images/github.svg";
 
 function App() {
 
@@ -25,7 +26,11 @@ function App() {
   const Form = () => {
     return (
       <div className="container ">
-        <h1>GitHub Follow/Following Tracker</h1>
+
+        <div>
+          <img src={githubLogo} className="gitLogo"></img>
+          
+        </div>
 
         <div className="input-group mb-3 form">
           <div className="input-group-prepend">
@@ -34,7 +39,7 @@ function App() {
           <input type="text" ref={inputUsername} className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="GitHub username" />
         </div>
 
-        <button type="button" onClick={() => check()} className="btn btn-secondary">Check</button>
+        <button type="button" onClick={() => check()} className="btn btn-dark submit">Check</button>
 
       </div>
     )
@@ -45,7 +50,7 @@ function App() {
     return (
       <div key={name} className="container">
         <h5>{name}</h5>
-        <button type="button" className="btn btn-secondary" onClick={() => setListUsers()}>X</button>
+        <button type="button" className="btn btn-dark" onClick={() => setListUsers()}>X</button>
           <div className="row">
           {
             content.map(element => {
