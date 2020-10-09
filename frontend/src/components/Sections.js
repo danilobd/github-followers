@@ -5,7 +5,7 @@ import Card from "../components/Card";
 const Sections = ({content, name}) => {
   console.log(name, content);
   return (
-    <div key={name} className="container">
+    <div key={name} className="container sections">
       <h5>{name}</h5>
       
         <div className="row">
