@@ -50,7 +50,7 @@ function App() {
     return (
       <div key={name} className="container">
         <h5>{name}</h5>
-        <button type="button" className="btn btn-dark" onClick={() => setListUsers()}>X</button>
+        
           <div className="row">
           {
             content.map(element => {
@@ -73,7 +73,12 @@ function App() {
         elements.push(<Sections key={name} content={listUsers[name]} name={name} />);  
       }
 
-      return elements;
+      return (
+        <>
+          <button type="button" className="btn btn-dark closeButton" onClick={() => setListUsers()}>Close</button>
+          {elements}
+        </>
+      );
     }
   }
 

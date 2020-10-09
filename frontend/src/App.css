@@ -42,3 +42,12 @@ h1{
   width: 8vw;
   color: #a9adbb !important;
 }
+
+.closeButton {
+	position: fixed;
+	top: 0;
+	align-self: end;
+	margin: 2vw 5vw;
+	width: 4vw;
+	background-color: #49565f;
+}
