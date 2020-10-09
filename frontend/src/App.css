@@ -51,3 +51,10 @@ h1{
 	width: 4vw;
 	background-color: #49565f;
 }
+
+.card {
+	border: 0 !important;
+  background-color: #343a40 !important;
+  width: 11rem !important;
+  height: 15rem !important; 
+}
