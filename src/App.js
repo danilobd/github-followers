@@ -16,15 +16,11 @@ class App {
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: true }));
 
-    this.express.set('view engine', 'pug');
-    this.express.set('views', `${__dirname}/views`);
-
     this.express.use(cors());
   }
 
   routes() {
     this.express.get('/status', (req, res) => this.routesController.status(req, res));
-    this.express.get('/', (req, res) => this.routesController.index(req, res));
     this.express.get('/api/username/:username', (req, res) => this.routesController.apiUsername(req, res));
   }
 }
