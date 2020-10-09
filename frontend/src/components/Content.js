@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Form from "../components/Form";
 import Sections from "../components/Sections";
 
-const Content = ({setLoading}) => {
+const Content = () => {
     
   const [listUsers, setListUsers] = useState();
 
   if(!listUsers)
-    return <Form setLoading={setLoading} setListUsers={setListUsers} />
+    return <Form setListUsers={setListUsers} />
   else {
     let elements = []
 

@@ -3,7 +3,7 @@ import React from "react";
 import Card from "../components/Card";
 
 const Sections = ({content, name}) => {
-  console.log(name, content);
+  
   return (
     <div key={name} className="container sections">
       <h5>{name}</h5>
