@@ -6,7 +6,8 @@ services:
       - .:/home/app
       - nodemodules_server:/home/app/node_modules
     ports: 
-      - ${PORT}:${PORT}
+      - ${PORT_SERVER}:${PORT_SERVER}
+      - ${PORT_CLIENT}:${PORT_CLIENT}
     command: yarn dev
 
 volumes: 
