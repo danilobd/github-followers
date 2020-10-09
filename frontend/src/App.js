@@ -2,29 +2,12 @@ import React, { useState } from 'react';
 import './App.css';
 
 import Form from "./components/Form";
-import Card from "./components/Card";
+import Sections from "./components/Sections";
 
 function App() {
 
   const [listUsers, setListUsers] = useState();
   const [loading, setLoading] = useState(false);
-
-  const Sections = ({content, name}) => {
-    console.log(name, content);
-    return (
-      <div key={name} className="container">
-        <h5>{name}</h5>
-        
-          <div className="row">
-          {
-            content.map(element => {
-              return <Card key={element.id} element={element} />
-            })
-          }
-        </div>
-      </div>
-    )
-  }
 
   const Content = () => {
     
