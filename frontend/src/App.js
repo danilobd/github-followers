@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import githubLogo from "./images/github.svg";
+
+import Form from "./components/Form";
 
 function App() {
 
-  const inputUsername = useRef();
   const [listUsers, setListUsers] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -19,28 +19,6 @@ function App() {
             </a>
           </div>
         </div>
-      </div>
-    )
-  }
-
-  const Form = () => {
-    return (
-      <div className="container ">
-
-        <div>
-          <img src={githubLogo} className="gitLogo" alt="GitHub Logo"></img>
-          
-        </div>
-
-        <div className="input-group mb-3 form">
-          <div className="input-group-prepend">
-            <span className="input-group-text">https://github.com/</span>
-          </div>
-          <input type="text" ref={inputUsername} className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="GitHub username" />
-        </div>
-
-        <button type="button" onClick={() => check()} className="btn btn-dark submit">Check</button>
-
       </div>
     )
   }
@@ -65,7 +43,7 @@ function App() {
   const Content = () => {
     
     if(!listUsers)
-      return <Form />
+      return <Form setLoading={setLoading} setListUsers={setListUsers} />
     else {
       let elements = []
 
@@ -80,31 +58,6 @@ function App() {
         </>
       );
     }
-  }
-
-  const check = async () => {
-
-    const username = inputUsername.current.value;
-
-    if(!username){
-      alert("What username?");
-      return 1;
-    }
-
-    setLoading(true);
-
-    try {
-      fetch(`http://localhost:5000/api/username/${username}`)
-      .then(response => response.json())
-        .then(jsondata => setListUsers(jsondata))
-
-    } catch (error) {
-      setLoading(false);
-      alert(error);
-    }
-
-    setLoading(false);
-
   }
 
   return (
