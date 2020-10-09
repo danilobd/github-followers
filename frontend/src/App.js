@@ -24,12 +24,13 @@ function App() {
 
   const Form = () => {
     return (
-      <div className="container">
+      <div className="container ">
+        <h1>GitHub Follow/Following Tracker</h1>
 
-        <p>Type your GitHub username</p>
-
-        <div className="input-group mb-3">
-          <div className="input-group-prepend"><span className="input-group-text" id="basic-addon3">https://github.com/</span></div>
+        <div className="input-group mb-3 form">
+          <div className="input-group-prepend">
+            <span className="input-group-text">https://github.com/</span>
+          </div>
           <input type="text" ref={inputUsername} className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="GitHub username" />
         </div>
 
