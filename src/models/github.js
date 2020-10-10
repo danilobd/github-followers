@@ -27,7 +27,7 @@ class GitHub {
   }
 
   youDontFollowBack(followgin, followers) {
-    const youDontFollowBack = { title: "You don't follow you back", users: [] };
+    const youDontFollowBack = { title: "You don't follow back", users: [] };
 
     const compare = (user) => followgin.find((element) => element.id === user.id);
 

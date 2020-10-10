@@ -13,7 +13,7 @@ const Content = () => {
     let elements = []
 
     for (const name of Object.keys(listUsers)) {
-      elements.push(<Sections key={name} content={listUsers[name]} name={name} />);  
+      elements.push(<Sections key={name} content={listUsers[name].users} name={listUsers[name].title} />);  
     }
 
     return (
