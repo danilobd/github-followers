@@ -10,32 +10,34 @@ class GitHub {
   }
 
   checkUsers(followgin, followers) {
-    const dontFollowBack = [];
-    const followBack = [];
+    const dontFollowBack = { title: "Don't follow you back", users: [] };
+    const followBack = { title: 'Follow you back', users: [] };
 
     const compare = (user) => followers.find((element) => element.id === user.id);
 
     followgin.forEach((user) => {
       const response = compare(user);
 
-      if (response === undefined) { dontFollowBack.push(user); } else followBack.push(response);
+      if (response === undefined) {
+        dontFollowBack.users.push(user);
+      } else { followBack.users.push(response); }
     });
 
     return { followBack, dontFollowBack };
   }
 
-  iDontFollowBack(followgin, followers) {
-    const dontFollowBack = [];
+  youDontFollowBack(followgin, followers) {
+    const youDontFollowBack = { title: "You don't follow you back", users: [] };
 
     const compare = (user) => followgin.find((element) => element.id === user.id);
 
     followers.forEach((user) => {
       const response = compare(user);
 
-      if (response === undefined) { dontFollowBack.push(user); }
+      if (response === undefined) { youDontFollowBack.users.push(user); }
     });
 
-    return dontFollowBack;
+    return youDontFollowBack;
   }
 }
 

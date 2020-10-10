@@ -18,12 +18,12 @@ class RoutesController {
 
       if (getFollowers && getFollowing) {
         const checkUsers = this.github.checkUsers(getFollowing, getFollowers);
-        const iDontFollowBack = this.github.iDontFollowBack(getFollowing, getFollowers);
+        const youDontFollowBack = this.github.youDontFollowBack(getFollowing, getFollowers);
 
         return res.json({
           followBack: checkUsers.followBack,
           dontFollowBack: checkUsers.dontFollowBack,
-          iDontFollowBack,
+          youDontFollowBack,
         }).send();
       }
       return res.status(404).send();
