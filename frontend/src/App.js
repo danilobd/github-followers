@@ -5,6 +5,8 @@ import Content from "./components/Content";
 
 function App() {
 
+  document.title = 'GitHub Follow/Followers Track';
+
   return (
     <div className="App">
       <header className="App-header">
