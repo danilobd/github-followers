@@ -5,10 +5,9 @@
   "author": "Danilo Dutra <contato@danbd.me>",
   "license": "MIT",
   "scripts": {
-    "server": "NODE_ENV=development nodemon src/index.js",
-    "client": "NODE_ENV=development PORT=${PORT_CLIENT} cd frontend && yarn start",
-    "test": "NODE_ENV=test jest",
-    "dev": "concurrently \"yarn server\" \"yarn client\" "
+    "dev-server": "NODE_ENV=development nodemon src/index.js",
+    "dev-client": "NODE_ENV=development PORT=${PORT_CLIENT} cd frontend && yarn start",
+    "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" "
   },
   "dependencies": {
     "concurrently": "^5.3.0",
