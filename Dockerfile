@@ -1,4 +1,4 @@
-FROM node:14.12.0-alpine3.12
+FROM node:14.12.0-alpine3.12 as github_followers
 
 WORKDIR /home/app
 
@@ -8,6 +8,10 @@ RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+RUN cd frontend && yarn install && yarn build
+
+RUN cd ..
+
+EXPOSE 5000
 
 CMD ["yarn", "start"]

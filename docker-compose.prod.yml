@@ -1,0 +1,8 @@
+version: "3.8"
+
+services: 
+  server:
+    ports: 
+      - ${PORT_SERVER}:${PORT_SERVER}
+      - ${PORT_CLIENT}:${PORT_CLIENT}
+    command: yarn start
