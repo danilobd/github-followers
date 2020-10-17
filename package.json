@@ -8,9 +8,7 @@
     "dev-server": "NODE_ENV=development nodemon src/index.js",
     "dev-client": "NODE_ENV=development PORT=${PORT_CLIENT} cd frontend && yarn start",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" ",
-    "prod-server": "NODE_ENV=production node src/index.js",
-    "prod-client": "NODE_ENV=production PORT=${PORT_CLIENT} cd frontend && yarn build",
-    "start": "concurrently \"yarn prod-server\" \"yarn prod-client\" "
+    "start": "NODE_ENV=production node src/index.js"
   },
   "dependencies": {
     "concurrently": "^5.3.0",
