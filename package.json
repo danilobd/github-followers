@@ -5,7 +5,7 @@
   "author": "Danilo Dutra <contato@danbd.me>",
   "license": "MIT",
   "scripts": {
-    "dev-server": "NODE_ENV=development nodemon src/index.js",
+    "dev-server": "NODE_ENV=development PORT=${PORT_SERVER} nodemon src/index.js",
     "dev-client": "NODE_ENV=development PORT=${PORT_CLIENT} cd frontend && yarn start",
     "dev": "concurrently \"yarn dev-server\" \"yarn dev-client\" ",
     "start": "NODE_ENV=production node src/index.js"

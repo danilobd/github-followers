@@ -12,6 +12,4 @@ RUN cd frontend && yarn install && yarn build
 
 RUN cd ..
 
-EXPOSE 5000
-
 CMD ["yarn", "start"]
