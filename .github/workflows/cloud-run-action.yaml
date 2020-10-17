@@ -32,7 +32,7 @@ jobs:
       - name: Deploy
         run: |
           gcloud run deploy github-followers \
-          --region us-east1-b \
+          --region us-east1 \
           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/github-followers \
           --platform managed \
           --allow-unauthenticated \
