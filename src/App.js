@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const RoutesController = require('./controllers/RoutesController');
 const GitHub = require('./models/github');
 
@@ -17,6 +18,8 @@ class App {
     this.express.use(express.urlencoded({ extended: true }));
 
     this.express.use(cors());
+
+    this.express.use('/', express.static(path.join(__dirname, '../frontend/build')));
   }
 
   routes() {
