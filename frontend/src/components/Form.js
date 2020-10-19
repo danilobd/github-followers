@@ -18,7 +18,9 @@ const Form = ({ setListUsers }) => {
       return 1;
     }
   
-    const response = await fetch(`http://localhost:5000/api/username/${username}`);
+    const base_url = process.env.NODE_ENV === "development" ? `http://localhost:5000/` : window.location;
+    
+    const response = await fetch(`${base_url}api/username/${username}`);
     const jsondata = await response.json();
     
     if(response.status === 200 || response.status === 304){
